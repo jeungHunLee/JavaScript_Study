@@ -25,10 +25,9 @@ console.log(Infinity - Infinity);    //NaN
 console.log(0 / 0);    //NaN
 
 //형 변환
-console.log("hello" + 0);    //hello0
-console.log(typeof ("hello" + 0));    //타입은 string
+console.log("hello" + 0);    //hello0    문자열과 숫자를 더할때 숫자를 문자열로 형변환
 console.log("hello" - 1);    //NaN (숫자가 아닌 문자열 빼기는 불가능)
-console.log('5' - 2);    //3
+console.log('5' - 2);    //3    빼기는 숫자 문자열을 숫자로 형변환
 
 //부동 소수점 오차
 console.log(0.1 + 0.2);    //0.30000000000000004
