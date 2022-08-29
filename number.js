@@ -10,6 +10,10 @@ console.log(parseInt("abc"));    //NaN (Not a Number의 약자)
 //실수 문자를 숫자로 바꾸는 함수
 console.log(parseFloat('3.14'));    //3.14
 
+//지수 표기법
+console.log(5e4);    //50000
+console.log(5e-4);     //0.0005
+
 //산술 연산자
 console.log(1 + 2);    //3
 console.log(2 - 1);    //1
@@ -20,6 +24,7 @@ console.log(7 % 2);    //1
 
 //무한 값
 console.log(2 / 0);    //Infinity (에러 발생 x)
+console.log(-2 / 0);    //-Infinity
 console.log(Infinity - 1);    //Infinity
 console.log(Infinity - Infinity);    //NaN
 console.log(0 / 0);    //NaN
