@@ -23,6 +23,7 @@ console.log(2 ** 3);    //8
 console.log(7 % 2);    //1
 
 //무한 값
+console.log(typeof Infinity)    //number
 console.log(2 / 0);    //Infinity (에러 발생 x)
 console.log(-2 / 0);    //-Infinity
 console.log(Infinity - 1);    //Infinity
