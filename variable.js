@@ -57,4 +57,4 @@ var test = function() {
     console.log("let, const 타입 hoisting");
 }
 
-test();
+test();    //let, const 타입 hoisting
