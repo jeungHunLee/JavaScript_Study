@@ -3,6 +3,7 @@ console.log(5 > 3);    //true
 console.log(5 < 3);    //false
 console.log(1 == 1);    //true
 console.log(1 != 1);    //false
+console.log(1 == true);    //true
 console.log(NaN == NaN);    //false    NaN끼리 == 연산 비교시 false 반환
 console.log(NaN != NaN);    //true    != 비교 연산은 true
 console.log(true > false);    //true    true는 1과 매칭, false는 0과 매칭
