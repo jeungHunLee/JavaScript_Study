@@ -29,7 +29,7 @@ if (score >= 90) {
 let grade = 'C';
 
 switch (grade) {
-    case 'A':
+    case 'A':    //조건이 일치(===)할 경우 실행문 실행
         console.log("A등급 입니다.");
         break;
     case 'B':
