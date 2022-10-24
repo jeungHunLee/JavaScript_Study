@@ -47,12 +47,21 @@ for (let num of numbers) {    //iterable한 객체 value 순회
 //forEach문(Array 객체에서만 사용가능)
 numbers.forEach(function(value, index) {
     console.log(value, index);
-    /*
+});
+/*
     zero 0
     one 1
     two 2
-    */
+*/
+
+numbers.forEach((value, index) => {
+    console.log(`value: ${value} index: ${index}`);
 });
+/*
+    value: zero index: 0
+    value: one index: 1
+    value: two index: 2
+*/
 
 //1부터 10까지 수 더하기 (break문 사용)
 var i = 1;
