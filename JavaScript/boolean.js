@@ -26,8 +26,10 @@ console.log('1' !== 1);    //true
 //논리 연산자
 console.log(10 > 5 && 1 < 2);    //true
 console.log(10 < 5 || 1 < 2);    //true
-console.log(!false);    //true
-console.log(!!undefined)    //false
-console.log(!!NaN);    //false
-console.log(!!null)    //false
-console.log(!!0)    //false
+console.log(!false);             //true
+console.log(!(0 > 1));           //true
+console.log(!!'');               //false
+console.log(!!undefined)         //false
+console.log(!!NaN);              //false
+console.log(!!null)              //false
+console.log(!!0)                 //false
