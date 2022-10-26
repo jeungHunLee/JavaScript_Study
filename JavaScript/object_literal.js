@@ -13,6 +13,9 @@ console.log(person['name']);    //홍길동
 console.log(person.age);    //99
 console.log(person['age']);    //99
 
+person.gender = "woman";    //속성 값 변경
+console.log(person.gender);    //woman
+
 delete person.gender;
 console.log(person.gender);    //undefined
 
