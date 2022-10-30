@@ -4,17 +4,21 @@ const number = [1, 2, 3, 4, 5];
 
 for (let i = 0; i < number.length; i++) {
     console.log(number[i]);
-    /*
+}
+/*
     1
     2
     3
     4
     5
     */
-}
+
+//배열에 요소 추가 / 수정하기
+number[number.length] = 6;
+console.log(number);    //[ 1, 2, 3, 4, 5, 6 ]
 
 //배열의 맨 앞에 요소 추가하기
-let value = [2, 3, 4, 5];
+const value = [2, 3, 4, 5];
 value.unshift(1);
 console.log(value);    //[1, 2, 3, 4, 5]
 
