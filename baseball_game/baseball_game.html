@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>숫자야구</title>
+</head>
+<body>
+    <form id="form">
+        <input type="text" id="input">
+        <button>확인</button>
+    </form>
+    <div id="logs"></div>
+    <script>
+        const $input = document.querySelector('#input');
+        const $form = document.querySelector('#form');
+        const $logs = document.querySelector('#logs');
+        const numbers = [];
+        const answer = [];
+
+        for(let n = 1; n < 10; n++) {
+            numbers.push(n);
+        }
+        
+        for(let i = 0; i < 4; i++) {
+            let index = Math.floor(Math.random() * numbers.length);
+            answer.push(numbers[index]);
+            numbers.splice(index, 1);
+        }
+        console.log(answer);
+
+        const tries = [];
+        function checkInput(input) {
+            if(input.length != 4) {
+                return alert('4자리 숫자를 입력해주세요');    //alert은 undefine 반환
+            } 
+            
+            if(new Set(input).size != 4) {    //Set (중복을 제외한 값들의 집합)
+                return alert('중복되지 않게 입력해주세요');
+            }
+
+            if(tries.includes(input)) {    //값이 배열에 포함되어 있는지 확인
+                return alert('이미 시도한 값입니다.');
+            }
+            return true;
+        }
+
+        $form.addEventListener('submit', (event) => {
+            event.preventDefault();    //form tag의 event 발생시 브라우저 새로고침을 막기위한 코드
+            const value = $input.value;
+            console.log(typeof value);
+            const valid = checkInput(value);
+            if(!valid) return;    //입력값이 정확하지 않다면 무시
+            if(answer.join('') === value) {
+                $logs.textContent = "홈런";
+                return;
+            }
+            if(tries.length >= 9) {
+                const message = document.createTextNode(`패배! 정답은 ${answer.join('')}`)
+                $logs.appendChild(message)    //기존 내용 유지한채 내용 추가
+                return;
+            }
+
+            let strike = 0;
+            let ball = 0;
+            for(let i = 0; i < 4; i++) {
+                if(answer.includes(parseInt(value[i]))) {
+                    if(answer.indexOf(parseInt(value[i])) === i) {
+                        strike += 1;
+                    } else {
+                        ball += 1;
+                    }
+                }
+            }
+            $logs.append(`${value}: ${strike} 스트라이크 ${ball} 볼`, document.createElement('br'));
+            tries.push(value);
+        });
+    </script>
+</body>
+</html>
