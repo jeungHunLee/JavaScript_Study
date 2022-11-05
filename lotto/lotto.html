@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또추첨기</title>
+    <style>
+        .ball {
+            display: inline-block;
+            border: 1px solid black;
+            border-radius: 20px;
+            width: 40px;
+            height: 40px;
+            line-height: 40px;
+            font-size: 20px;
+            text-align: center;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="result">추첨 결과는?</div>
+    <div id="bonus">보너스: </div>
+    <script>
+        const candidate = Array(45).fill().map((el, i) => i + 1);    //el: 요소, i: index
+        const shuffle = [];
+        for(let i = 0; i < 7; i++) {
+            let temp = Math.floor(Math.random() * (candidate.length));
+            shuffle.push(candidate[temp]);
+            candidate.splice(temp, 1);
+        }
+
+        const winBalls = shuffle.slice(0, 6).sort((a, b) => a - b);    // return 양수: a를 b 뒤로, return 0: 변화 X, return 음수: a를 b 앞으로 정렬
+        const bonus = shuffle[6];
+        const $result = document.querySelector('#result');
+        for(let i = 0; i < 6; i++) {
+            setTimeout(() => {
+            const $ball = document.createElement('div');    //html 태그 생성
+            $ball.className = 'ball';    //class name 지정
+            $ball.textContent = winBalls[i];
+            if(winBalls[i] <= 10) $ball.style.backgroundColor = 'yellow';
+            else if(winBalls[i] <= 20) $ball.style.backgroundColor = 'blue';
+            else if(winBalls[i] <= 30) $ball.style.backgroundColor = 'red';
+            else if(winBalls[i] <= 40) $ball.style.backgroundColor = 'gray';
+            else $ball.style.backgroundColor = 'green';
+            $result.append($ball);
+        }, 1000 * (i + 1));
+        }
+
+        const $bonus = document.querySelector('#bonus');
+        setTimeout(() => {
+            const $ball = document.createElement('div');
+            $ball.className = 'ball';
+            $ball.textContent = bonus;
+            if(bonus <= 10) $ball.style.backgroundColor = 'yellow';
+            else if(bonus <= 20) $ball.style.backgroundColor = 'blue';
+            else if(bonus <= 30) $ball.style.backgroundColor = 'red';
+            else if(bonus <= 40) $ball.style.backgroundColor = 'gray';
+            else $ball.style.backgroundColor = 'green';
+            $result.append($ball);
+            $bonus.append($ball);
+        }, 7000);
+    </script>
+</body>
+</html>
