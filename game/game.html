@@ -12,7 +12,11 @@
     <input type="text">
     <button>입력</button>
     <script>
-        const number = Number(prompt("몇 명이 참가하나요?"));
+        let number;
+        do {
+            number = Number(prompt("몇 명이 참가하나요?(3~10까지의 수 입력)"));
+        } while(number < 3 || number > 10 || isNaN(number));
+        console.log(number);
         const $input = document.querySelector('input');    //input tag 선택
         const $button = document.querySelector('button');
         const $word = document.querySelector('#word');
@@ -22,7 +26,24 @@
         let order = Number($order.textContent);
 
         const onClickButton = () => {
-            if(!word || word[word.length - 1] == newWord[0]) {    //word가 비어있는 경우(첫번째 입력한 사람의 경우)
+            let isNum = true;
+            
+            for(let i = 0; i < newWord.length; i++) {
+                if(!isNaN(newWord[i])) {
+                    isNum = false;
+                }
+            }
+
+            if(!isNum) {
+                alert('올바른 단어를 입력하세요.');
+                $input.value = '';
+                $input.focus();
+                return;
+            }
+
+            if(newWord.length === 1) {    //한 음절만 입력한 경우
+                alert('한 음절 이상 입력하세요.');
+            } else if(!word || word[word.length - 1] == newWord[0]) {    //word가 비어있는 경우(첫번째 입력한 사람의 경우)
                 word = newWord;
                 $word.textContent = word;    //화면에 표시
 
@@ -33,7 +54,6 @@
                     $order.textContent = order + 1;
                     order += 1;
                 }
-
             } else {
                 alert('올바르지 않은 단어입니다.');
             }
@@ -47,7 +67,6 @@
         };
 
         $button.addEventListener('click', onClickButton);    //button tag에 대한 event listener
-
         $input.addEventListener('input', onInput);    //iput tag에 대한 event listener
 
     </script>
