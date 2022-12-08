@@ -28,7 +28,7 @@
         const $scissors = document.querySelector('#scissors');
         const $paper = document.querySelector('#paper');
         const IMG_URL = './rsp.png';
-        $computer.style.backgroundSize = 'auto 200px';
+        $computer.style.backgroundSize = 'auto 200px';    //가로 자동, 세로 200px
         const rspX = {    //객체 리터럴로 표현
             /* 좌표가 0이면 단위(px) 생략 가능 */
             scissors: '-0',      //가위
@@ -52,7 +52,7 @@
                 computerChoice = 'rock';
             }
             //* background 속성: url(주소), x좌표, y좌표 */
-            $computer.style.background = `url(${IMG_URL}) ${rspX[computerChoice]} 0`;
+            $computer.style.background = `url(${IMG_URL}) ${rspX[computerChoice]} 0`;    //주소, x좌표, y좌표
             $computer.style.backgroundSize = 'auto 200px';    //가로는 auto, 세로는 200px가 될때까지 비율 조정
         };
 
@@ -65,10 +65,16 @@
             $rock.removeEventListener('click', clickButton);
             $paper.removeEventListener('click', clickButton);
 
-            let myChoice = event.target.textContent === '바위' ? 'rock' : event.target.textContent === '가위' ? 'scissors' : 'paper';
+            let myChoice = event.target.textContent === '바위' ? 'rock' : event.target.textContent === '가위' ? 'scissors' : 'paper';    //textContent 노드가 가지고 있는 텍스트를 가져온다
             let computerScore = scoreTable[computerChoice];
             let myScore = scoreTable[myChoice];
             let score = myScore - computerScore;
+
+            // 가위: 1,  바위: 0,   보: -1
+            // 나\컴퓨터  가위    바위    보
+            // 가위       0       1       2
+            // 바위      -1       0       1
+            // 보        -2      -1       0
 
             if([2, -1].includes(score)) {
                 total += 1;
