@@ -1,0 +1,9 @@
+.card { display: inline-block; margin-left: 20px; margin-bottom: 20px;
+    width: 70px; height: 100px; perspective: 140px; }
+.card-inner { position: relative; width: 100%; height: 100%; text-align: center;
+    transition: transform 0.8s; transform-style: preserve-3d; }
+.card.flipped .card-inner { transform: rotateY(180deg); }    /* 띄워쓰면 하위 선택자, dot(.)으로 이어쓴 선택자는 class 속성을 모두 가진 선택자*/
+.card-front { background: navy; }
+.card-front, .card-back { position: absolute; width: 100%; height: 100%;    /* 쉼표(,)로 구분된 것은 각각 적용 */
+border: 1px solid black; backface-visibility: hidden; }
+.card-back { transform: rotateY(180deg); }
