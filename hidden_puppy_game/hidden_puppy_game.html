@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hidden puppy game</title>
+    <link type="text/css" rel="stylesheet" href="hidden_puppy_game.css">
+</head>
+<body>
+    <audio id="audio"></audio>
+    <div id="gametitle">HIDDEN PUPPY GAME</div>
+    <hr> <!--수평선-->
+    <div id="gamepanel">
+        <div id="menu">
+            <div id="startMenu" class="menuStyle" onclick="clickStartGame();">게임시작</div>
+            <div id="rest" class="menuStyle">남은수: &nbsp; 8</div>
+            <div id="fail" class="menuStyle">실패수: &nbsp; 0</div>
+            <div id="time" class="menuStyle">시간: &nbsp; 0</div>
+            <div id="result" class="menuStyle">게임이 진행될 예정입니다.</div>
+        </div>
+        <div id="tablediv">
+            <table>
+                <tr><td><img src="media/img1.gif"></td><td><img src="media/img1.gif"></td>
+                    <td><img src="media/img1.gif"></td><td><img src="media/img1.gif"></td>
+                    <td><img src="media/img1.gif"></td><td><img src="media/img1.gif"></td>
+                    <td><img src="media/img1.gif"></td><td><img src="media/img1.gif"></td></tr>
+                <tr><td><img src="media/img1.gif"></td><td><img src="media/img1.gif"></td>
+                    <td><img src="media/img1.gif"></td><td><img src="media/img1.gif"></td>
+                    <td><img src="media/img1.gif"></td><td><img src="media/img1.gif"></td>
+                    <td><img src="media/img1.gif"></td><td><img src="media/img1.gif"></td></tr>
+                <tr><td><img src="media/img1.gif"></td><td><img src="media/img1.gif"></td>
+                    <td><img src="media/img1.gif"></td><td><img src="media/img1.gif"></td>
+                    <td><img src="media/img1.gif"></td><td><img src="media/img1.gif"></td>
+                    <td><img src="media/img1.gif"></td><td><img src="media/img1.gif"></td></tr>
+            </table>
+        </div>
+    </div>
+    <div id="gameover"></div>
+    <script src="hidden_puppy_game.js"></script>
+</body>
+</html>
